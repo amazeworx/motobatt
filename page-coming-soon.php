@@ -9,8 +9,8 @@
  */
 
  /* Add body class */
-add_filter( 'body_class', 'gfs_add_body_class' );
-function gfs_add_body_class( $classes ) {
+add_filter( 'body_class', 'motobatt_add_body_class' );
+function motobatt_add_body_class( $classes ) {
 
 	$classes[] = 'coming-soon';
 
@@ -20,8 +20,8 @@ function gfs_add_body_class( $classes ) {
 
 /* Remove Skip Links */
 remove_action ( 'genesis_before_header', 'genesis_skip_links', 5 );
-add_action( 'wp_enqueue_scripts', 'gfs_dequeue_skip_links' );
-function gfs_dequeue_skip_links() {
+add_action( 'wp_enqueue_scripts', 'motobatt_dequeue_skip_links' );
+function motobatt_dequeue_skip_links() {
 
 	wp_dequeue_script( 'skip-links' );
 
@@ -46,14 +46,14 @@ remove_action( 'genesis_entry_content', 'genesis_do_post_content_nav', 12 );
 remove_action( 'genesis_entry_content', 'genesis_do_post_permalink', 14 );
 
 // Add comingsoon content
-add_action( 'genesis_entry_content', 'gfs_comingsoon_content' );
-function gfs_comingsoon_content() {
+add_action( 'genesis_entry_content', 'motobatt_comingsoon_content' );
+function motobatt_comingsoon_content() {
     ?>
     <div class="intro">
-        <div class="text-center"><?php echo gfs_icon( array( 'icon' => 'code', 'group' => 'utility', 'size' => 128, 'class' => 'icon-code mx-auto' ) ); ?></div>
+        <div class="text-center"><?php echo motobatt_icon( array( 'icon' => 'code', 'group' => 'utility', 'size' => 128, 'class' => 'icon-code mx-auto' ) ); ?></div>
         <h2 class="headline">This page is currently under development. Please check back later.</h2>
         <div class="section-buttons">
-            <a href="#" class="button button-invert">Back to Homepage</a>
+            <a href="/" class="button button-invert">Back to Homepage</a>
         </div>
     </div>
     <?php

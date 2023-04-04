@@ -1,3 +1,20 @@
+audio, canvas, embed, iframe, img, object, svg, video {
+    display: block;
+    vertical-align: middle;
+}
+
+/* Width
+--------------------------------------------- */
+.w-full {
+    width: 100%;
+}
+
+/* Figure
+--------------------------------------------- */
+figure {
+    margin: 0;
+}
+
 /* Button
 --------------------------------------------- */
 
@@ -63,6 +80,8 @@ $default: nth( nth( $brand_colors, 1 ), 1 ); // first color in $brand_colors arr
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 3px;
+    border: none;
+    white-space: nowrap;
     &:hover {
         text-decoration: none;
         opacity: 0.8;
@@ -81,6 +100,10 @@ $default: nth( nth( $brand_colors, 1 ), 1 ); // first color in $brand_colors arr
     &.button-invert {
         background-color: $black;
         color: $yellow;
+    }
+    &.button-block {
+        display: block;
+        width: 100%;
     }
 }
 

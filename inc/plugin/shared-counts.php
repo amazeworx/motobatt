@@ -16,18 +16,18 @@ add_filter( 'shared_counts_load_js', '__return_false' );
  * Shared Counts header
  *
  */
-function gfs_shared_counts_header( $output, $location ) {
+function motobatt_shared_counts_header( $output, $location ) {
 	if( 'after_content' === $location )
 		$output = '<h3>Share this Article</h3>' . $output;
 	return $output;
 }
-add_filter( 'shared_counts_display', 'gfs_shared_counts_header', 10, 2 );
+add_filter( 'shared_counts_display', 'motobatt_shared_counts_header', 10, 2 );
 
 /**
  * Simple email button
  * Does not require loading JS
  */
-function gfs_shared_counts_email_link( $link, $id ) {
+function motobatt_shared_counts_email_link( $link, $id ) {
 	if( 'email' !== $link['type'] )
 		return $link;
 
@@ -40,13 +40,13 @@ function gfs_shared_counts_email_link( $link, $id ) {
 
 	return $link;
 }
-add_filter( 'shared_counts_link', 'gfs_shared_counts_email_link', 10, 2 );
+add_filter( 'shared_counts_link', 'motobatt_shared_counts_email_link', 10, 2 );
 
 /**
  * Shared Counts Services
  *
  */
-function gfs_shared_counts_services( $services, $location ) {
+function motobatt_shared_counts_services( $services, $location ) {
 	if( 'after_content' !== $location )
 		return $services;
 
@@ -57,19 +57,19 @@ function gfs_shared_counts_services( $services, $location ) {
 
 	return $services;
 }
-add_filter( 'shared_counts_display_services', 'gfs_shared_counts_services', 10, 2 );
+add_filter( 'shared_counts_display_services', 'motobatt_shared_counts_services', 10, 2 );
 
 /**
  * Shared Counts Locations
  *
  */
-function gfs_shared_counts_locations( $locations ) {
-	$locations['before']['hook'] = 'gfs_entry_header_share';
-	$locations['after']['hook'] = 'gfs_entry_footer_share';
+function motobatt_shared_counts_locations( $locations ) {
+	$locations['before']['hook'] = 'motobatt_entry_header_share';
+	$locations['after']['hook'] = 'motobatt_entry_footer_share';
 	$locations['after']['style'] = 'button';
 	return $locations;
 }
-add_filter( 'shared_counts_theme_locations', 'gfs_shared_counts_locations' );
+add_filter( 'shared_counts_theme_locations', 'motobatt_shared_counts_locations' );
 
 /**
  * Production URL
@@ -80,7 +80,7 @@ add_filter( 'shared_counts_theme_locations', 'gfs_shared_counts_locations' );
  * @return string $url, converted to production. Uses home_url() if no url provided
  *
  */
-function gfs_production_url( $url = false ) {
+function motobatt_production_url( $url = false ) {
 	$production = false; // put production URL here
 
 	if( !empty( $production_url ) ) {
@@ -99,11 +99,11 @@ function gfs_production_url( $url = false ) {
  * @param array $params, API parameters used when fetching share counts
  * @return array
  */
-function gfs_production_url_share_count_api( $params ) {
-	$params['url'] = gfs_production_url( $params['url'] );
+function motobatt_production_url_share_count_api( $params ) {
+	$params['url'] = motobatt_production_url( $params['url'] );
 	return $params;
 }
-add_filter( 'shared_counts_api_params', 'gfs_production_url_share_count_api' );
+add_filter( 'shared_counts_api_params', 'motobatt_production_url_share_count_api' );
 
 /**
  * Use Production URL for Share Count link
@@ -113,10 +113,10 @@ add_filter( 'shared_counts_api_params', 'gfs_production_url_share_count_api' );
  * @param array $link, elements of the link
  * @return array
  */
-function gfs_production_url_share_count_link( $link ) {
+function motobatt_production_url_share_count_link( $link ) {
 	$exclude = array( 'print', 'email' );
 	if( ! in_array( $link['type'], $exclude ) )
-		$link['link'] = gfs_production_url( $link['link'] );
+		$link['link'] = motobatt_production_url( $link['link'] );
 	return $link;
 }
-add_filter( 'shared_counts_link', 'gfs_production_url_share_count_link' );
+add_filter( 'shared_counts_link', 'motobatt_production_url_share_count_link' );

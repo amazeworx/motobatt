@@ -12,20 +12,20 @@
  * Use Archive Loop
  *
  */
-function gfs_use_archive_loop() {
+function motobatt_use_archive_loop() {
 
 	if( ! is_singular() && ! is_404() ) {
-		add_action( 'genesis_loop', 'gfs_archive_loop' );
+		add_action( 'genesis_loop', 'motobatt_archive_loop' );
 		remove_action( 'genesis_loop', 'genesis_do_loop' );
 	}
 }
-add_action( 'template_redirect', 'gfs_use_archive_loop', 20 );
+add_action( 'template_redirect', 'motobatt_use_archive_loop', 20 );
 
 /**
  * Archive Loop
  * Uses template partials
  */
-function gfs_archive_loop() {
+function motobatt_archive_loop() {
 
 	if ( have_posts() ) {
 
@@ -37,8 +37,8 @@ function gfs_archive_loop() {
 			do_action( 'genesis_before_entry' );
 
 			// Template part
-			$partial = apply_filters( 'gfs_loop_partial', 'archive' );
-			$context = apply_filters( 'gfs_loop_partial_context', is_search() ? 'search' : get_post_type() );
+			$partial = apply_filters( 'motobatt_loop_partial', 'archive' );
+			$context = apply_filters( 'motobatt_loop_partial_context', is_search() ? 'search' : get_post_type() );
 			get_template_part( 'partials/' . $partial, $context );
 
 			do_action( 'genesis_after_entry' );
@@ -70,10 +70,10 @@ function be_remove_entry_title() {
 	if( $has_h1 ) {
 		remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
 		remove_action( 'genesis_entry_header', 'genesis_do_breadcrumbs', 8 );
-		remove_action( 'genesis_entry_header', 'gfs_entry_category', 8 );
+		remove_action( 'genesis_entry_header', 'motobatt_entry_category', 8 );
 		remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
-		remove_action( 'genesis_entry_header', 'gfs_entry_author', 12 );
-		remove_action( 'genesis_entry_header', 'gfs_entry_header_share', 13 );
+		remove_action( 'genesis_entry_header', 'motobatt_entry_author', 12 );
+		remove_action( 'genesis_entry_header', 'motobatt_entry_header_share', 13 );
 		remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
 	}
 }

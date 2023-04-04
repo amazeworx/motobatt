@@ -43,10 +43,10 @@ add_action( 'genesis_meta', function() {
  * Editor layout style
  *
  */
-function gfs_editor_layout_style() {
+function motobatt_editor_layout_style() {
 	wp_enqueue_style( 'ea-editor-layout', get_stylesheet_directory_uri() . '/assets/css/editor-layout.css', [], filemtime( get_stylesheet_directory() . '/assets/css/editor-layout.css' ) );
 }
-add_action( 'enqueue_block_editor_assets', 'gfs_editor_layout_style' );
+add_action( 'enqueue_block_editor_assets', 'motobatt_editor_layout_style' );
 
 /**
  * Editor layout class
@@ -55,7 +55,7 @@ add_action( 'enqueue_block_editor_assets', 'gfs_editor_layout_style' );
  * @param string $classes
  * @return string
  */
-function gfs_editor_layout_class( $classes ) {
+function motobatt_editor_layout_class( $classes ) {
 	$screen = get_current_screen();
 	if( ! $screen->is_block_editor() )
 		return $classes;
@@ -74,4 +74,4 @@ function gfs_editor_layout_class( $classes ) {
 	$classes .= ' ' . $layout . ' ';
 	return $classes;
 }
-add_filter( 'admin_body_class', 'gfs_editor_layout_class' );
+add_filter( 'admin_body_class', 'motobatt_editor_layout_class' );

@@ -10,13 +10,13 @@
 
 // Duplicate 'the_content' filters
 global $wp_embed;
-add_filter( 'gfs_the_content', array( $wp_embed, 'run_shortcode' ), 8 );
-add_filter( 'gfs_the_content', array( $wp_embed, 'autoembed'     ), 8 );
-add_filter( 'gfs_the_content', 'wptexturize'        );
-add_filter( 'gfs_the_content', 'convert_chars'      );
-add_filter( 'gfs_the_content', 'wpautop'            );
-add_filter( 'gfs_the_content', 'shortcode_unautop'  );
-add_filter( 'gfs_the_content', 'do_shortcode'       );
+add_filter( 'motobatt_the_content', array( $wp_embed, 'run_shortcode' ), 8 );
+add_filter( 'motobatt_the_content', array( $wp_embed, 'autoembed'     ), 8 );
+add_filter( 'motobatt_the_content', 'wptexturize'        );
+add_filter( 'motobatt_the_content', 'convert_chars'      );
+add_filter( 'motobatt_the_content', 'wpautop'            );
+add_filter( 'motobatt_the_content', 'shortcode_unautop'  );
+add_filter( 'motobatt_the_content', 'do_shortcode'       );
 
 /**
  * Get the first term attached to post
@@ -26,7 +26,7 @@ add_filter( 'gfs_the_content', 'do_shortcode'       );
  * @param int $post_id
  * @return string/object
  */
-function gfs_first_term( $args = [] ) {
+function motobatt_first_term( $args = [] ) {
 
 	$defaults = [
 		'taxonomy'	=> 'category',
@@ -98,7 +98,7 @@ function gfs_first_term( $args = [] ) {
  * @param bool $conditional, whether to add $optional_class or not
  * @return string $classes
  */
-function gfs_class( $base_classes, $optional_class, $conditional ) {
+function motobatt_class( $base_classes, $optional_class, $conditional ) {
 	return $conditional ? $base_classes . ' ' . $optional_class : $base_classes;
 }
 
@@ -108,7 +108,7 @@ function gfs_class( $base_classes, $optional_class, $conditional ) {
  * @param int $image_id
  * @return string $output
  */
-function gfs_bg_image_style( $image_id = false, $image_size = 'full' ) {
+function motobatt_bg_image_style( $image_id = false, $image_size = 'full' ) {
 	if( !empty( $image_id ) )
 		return ' style="background-image: url(' . wp_get_attachment_image_url( $image_id, $image_size ) . ');"';
 }
@@ -125,7 +125,7 @@ function gfs_bg_image_style( $image_id = false, $image_size = 'full' ) {
  * to only specify a `$size` parameter in the svg methods.
  *
  */
-function gfs_icon( $atts = array() ) {
+function motobatt_icon( $atts = array() ) {
 
 	$atts = shortcode_atts( array(
 		'icon'	=> false,
@@ -169,7 +169,7 @@ function gfs_icon( $atts = array() ) {
  * Has Action
  *
  */
-function gfs_has_action( $hook ) {
+function motobatt_has_action( $hook ) {
 	ob_start();
 	do_action( $hook );
 	$output = ob_get_clean();

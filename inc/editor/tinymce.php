@@ -15,11 +15,11 @@
   * @param array $buttons
   * @return array
   */
- function gfs_mce_editor_buttons( $buttons ) {
+ function motobatt_mce_editor_buttons( $buttons ) {
  	array_unshift( $buttons, 'styleselect' );
  	return $buttons;
  }
- add_filter( 'mce_buttons_2', 'gfs_mce_editor_buttons' );
+ add_filter( 'mce_buttons_2', 'motobatt_mce_editor_buttons' );
 
  /**
   * Add styles/classes to the TinyMCE "Formats" drop-down
@@ -28,7 +28,7 @@
   * @param array $settings
   * @return array
   */
- function gfs_mce_before_init( $settings ) {
+ function motobatt_mce_before_init( $settings ) {
 
  	$style_formats = array(
  		array(
@@ -55,4 +55,4 @@
  	$settings['style_formats'] = json_encode( $style_formats );
  	return $settings;
  }
- add_filter( 'tiny_mce_before_init', 'gfs_mce_before_init' );
+ add_filter( 'tiny_mce_before_init', 'motobatt_mce_before_init' );

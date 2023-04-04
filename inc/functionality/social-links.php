@@ -12,7 +12,7 @@
  * Social Links
  *
  */
-function gfs_social_links() {
+function motobatt_social_links() {
 	$socials = [
 		'facebook'	=> [
 			'key'	=> 'facebook_site',
@@ -44,10 +44,10 @@ function gfs_social_links() {
 		if( !empty( $url ) && !empty( $settings['prepend'] ) )
 			$url = $settings['prepend'] . $url;
 		if( !empty( $url ) )
-			$output[] = '<li><a href="' . esc_url_raw( $url ) . '" target="_blank" rel="noopener noreferrer">' . gfs_icon( array( 'icon' => $social, 'group' => 'social', 'label' => $settings['label'] ) ) . '<span class="label">' . esc_html( $settings['label'] ) . '</span></a></li>';
+			$output[] = '<li><a href="' . esc_url_raw( $url ) . '" target="_blank" rel="noopener noreferrer">' . motobatt_icon( array( 'icon' => $social, 'group' => 'social', 'label' => $settings['label'] ) ) . '<span class="label">' . esc_html( $settings['label'] ) . '</span></a></li>';
 	}
 
 	if( !empty( $output ) )
 		return '<ul class="social-links">' . join( PHP_EOL, $output ) . '</ul>';
 }
-add_shortcode( 'social_links', 'gfs_social_links' );
+add_shortcode( 'social_links', 'motobatt_social_links' );

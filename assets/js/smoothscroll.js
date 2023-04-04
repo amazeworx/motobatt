@@ -1,7 +1,7 @@
 jQuery(function($){
 
 	// Smooth Scroll
-	function gfs_scroll( hash ) {
+	function motobatt_scroll( hash ) {
 		var target = null;
 
 		try {
@@ -29,12 +29,12 @@ jQuery(function($){
 
 	// -- Smooth scroll on pageload
 	if( window.location.hash ) {
-		gfs_scroll( window.location.hash );
+		motobatt_scroll( window.location.hash );
 	}
 	// -- Smooth scroll on click
 	$('a[href*="#"]:not([href="#"]):not(.no-scroll)').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
-			gfs_scroll( this.hash );
+			motobatt_scroll( this.hash );
 		}
 	});
 

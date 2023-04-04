@@ -20,7 +20,7 @@
   * @param  string $url Request URL
   * @return array Amended request arguments
   */
- function gfs_dont_update_theme( $r, $url ) {
+ function motobatt_dont_update_theme( $r, $url ) {
  	if ( 0 !== strpos( $url, 'https://api.wordpress.org/themes/update-check/1.1/' ) )
   		return $r; // Not a theme update request. Bail immediately.
   	$themes = json_decode( $r['body']['themes'] );
@@ -29,36 +29,36 @@
   	$r['body']['themes'] = json_encode( $themes );
   	return $r;
   }
- add_filter( 'http_request_args', 'gfs_dont_update_theme', 5, 2 );
+ add_filter( 'http_request_args', 'motobatt_dont_update_theme', 5, 2 );
 
 /**
  * Dequeue jQuery Migrate
  *
  */
-function gfs_dequeue_jquery_migrate( &$scripts ){
+function motobatt_dequeue_jquery_migrate( &$scripts ){
 	if( !is_admin() ) {
 		$scripts->remove( 'jquery');
 		$scripts->add( 'jquery', false, array( 'jquery-core' ), '1.10.2' );
 	}
 }
-add_filter( 'wp_default_scripts', 'gfs_dequeue_jquery_migrate' );
+add_filter( 'wp_default_scripts', 'motobatt_dequeue_jquery_migrate' );
 
 /**
  * Singular body class
  *
  */
-function gfs_singular_body_class( $classes ) {
+function motobatt_singular_body_class( $classes ) {
 	if( is_singular() )
 		$classes[] = 'singular';
 	return $classes;
 }
-//add_filter( 'body_class', 'gfs_singular_body_class' );
+//add_filter( 'body_class', 'motobatt_singular_body_class' );
 
 /**
  * Clean body classes
  *
  */
-function gfs_clean_body_classes( $classes ) {
+function motobatt_clean_body_classes( $classes ) {
 
 	$allowed_classes = [
 		'singular',
@@ -74,13 +74,13 @@ function gfs_clean_body_classes( $classes ) {
 	return array_intersect( $classes, $allowed_classes );
 
 }
-//add_filter( 'body_class', 'gfs_clean_body_classes', 20 );
+//add_filter( 'body_class', 'motobatt_clean_body_classes', 20 );
 
 /**
  * Clean Nav Menu Classes
  *
  */
-function gfs_clean_nav_menu_classes( $classes ) {
+function motobatt_clean_nav_menu_classes( $classes ) {
 	if( ! is_array( $classes ) )
 		return $classes;
 
@@ -113,13 +113,13 @@ function gfs_clean_nav_menu_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'nav_menu_css_class', 'gfs_clean_nav_menu_classes', 5 );
+add_filter( 'nav_menu_css_class', 'motobatt_clean_nav_menu_classes', 5 );
 
 /**
  * Clean Post Classes
  *
  */
-function gfs_clean_post_classes( $classes ) {
+function motobatt_clean_post_classes( $classes ) {
 
 	if( ! is_array( $classes ) )
 		return $classes;
@@ -131,13 +131,13 @@ function gfs_clean_post_classes( $classes ) {
 
 	return array_intersect( $classes, $allowed_classes );
 }
-//add_filter( 'post_class', 'gfs_clean_post_classes', 5 );
+//add_filter( 'post_class', 'motobatt_clean_post_classes', 5 );
 
 /**
  * Archive Title, remove prefix
  *
  */
-function gfs_archive_title_remove_prefix( $title ) {
+function motobatt_archive_title_remove_prefix( $title ) {
 	$title_pieces = explode( ': ', $title );
 	if( count( $title_pieces ) > 1 ) {
 		unset( $title_pieces[0] );
@@ -145,52 +145,52 @@ function gfs_archive_title_remove_prefix( $title ) {
 	}
 	return $title;
 }
-add_filter( 'get_the_archive_title', 'gfs_archive_title_remove_prefix' );
+add_filter( 'get_the_archive_title', 'motobatt_archive_title_remove_prefix' );
 
 /**
  * Staff comment class
  *
  */
-function gfs_staff_comment_class( $classes, $class, $comment_id, $comment, $post_id ) {
+function motobatt_staff_comment_class( $classes, $class, $comment_id, $comment, $post_id ) {
 	if( empty( $comment->user_id ) )
 		return $classes;
 	$staff_roles = array( 'comment_manager', 'author', 'editor', 'administrator' );
-	$staff_roles = apply_filters( 'gfs_staff_roles', $staff_roles );
+	$staff_roles = apply_filters( 'motobatt_staff_roles', $staff_roles );
 	$user = get_userdata( $comment->user_id );
 	if( !empty( array_intersect( $user->roles, $staff_roles ) ) )
 		$classes[] = 'staff';
 	return $classes;
 }
-add_filter( 'comment_class', 'gfs_staff_comment_class', 10, 5 );
+add_filter( 'comment_class', 'motobatt_staff_comment_class', 10, 5 );
 
 /**
  * Remove avatars from comment list
  *
  */
-function gfs_remove_avatars_from_comments( $avatar ) {
+function motobatt_remove_avatars_from_comments( $avatar ) {
 	global $in_comment_loop;
 	return $in_comment_loop ? '' : $avatar;
 }
-//add_filter( 'get_avatar', 'gfs_remove_avatars_from_comments' );
+//add_filter( 'get_avatar', 'motobatt_remove_avatars_from_comments' );
 
 /**
  * Comment form, button class
  *
  */
-function gfs_comment_form_button_class( $args ) {
+function motobatt_comment_form_button_class( $args ) {
 	$args['class_submit'] = 'submit wp-block-button__link';
 	return $args;
 }
-add_filter( 'comment_form_defaults', 'gfs_comment_form_button_class' );
+add_filter( 'comment_form_defaults', 'motobatt_comment_form_button_class' );
 
 /**
  * Excerpt More
  *
  */
-function gfs_excerpt_more() {
+function motobatt_excerpt_more() {
 	return '&hellip;';
 }
-add_filter( 'excerpt_more', 'gfs_excerpt_more' );
+add_filter( 'excerpt_more', 'motobatt_excerpt_more' );
 
 // Remove inline CSS for emoji
 remove_action( 'wp_print_styles', 'print_emoji_styles' );

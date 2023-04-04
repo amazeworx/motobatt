@@ -16,11 +16,31 @@ jQuery(function($){
 		e.preventDefault();
 	});
 
-	// Search toggle
-	$('.search-toggle').click(function(){
-		$('.menu-toggle, .nav-menu').removeClass('active');
-		$('.search-toggle, .header-search').toggleClass('active');
-		$('.site-header .search-field').focus();
-	});
+    // Product Image Slider
+    $('.slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true,
+        fade: false,
+        //asNavFor: '.slider-nav-thumbnails',
+    });
+
+    // FAQ Accordion
+    var panelContents = $('.accordion > dd').hide();
+    var panelTitles = $('.accordion > dt > a');
+    $('.accordion > dt > a').click(function() {
+        $this = $(this);
+        $target =  $this.parent().next();
+
+        if(!$target.hasClass('active')) {
+            panelContents.removeClass('active').slideUp();
+            $target.addClass('active').slideDown();
+            panelTitles.removeClass('active');
+            $this.addClass('active');
+        }
+
+        return false;
+    });
 
 });

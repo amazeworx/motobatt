@@ -69,33 +69,33 @@ unregister_sidebar( 'sidebar-alt' );
  * Remove Genesis Templates
  *
  */
-function gfs_remove_genesis_templates( $page_templates ) {
+function motobatt_remove_genesis_templates( $page_templates ) {
 	unset( $page_templates['page_archive.php'] );
 	unset( $page_templates['page_blog.php'] );
 	return $page_templates;
 }
-add_filter( 'theme_page_templates', 'gfs_remove_genesis_templates' );
+add_filter( 'theme_page_templates', 'motobatt_remove_genesis_templates' );
 
 /**
  * Custom search form
  *
  */
-function gfs_search_form() {
+function motobatt_search_form() {
 	ob_start();
 	get_template_part( 'searchform' );
 	return ob_get_clean();
 }
-add_filter( 'genesis_search_form', 'gfs_search_form' );
+add_filter( 'genesis_search_form', 'motobatt_search_form' );
 
 /**
  * Disable customizer theme settings
  *
  */
-function gfs_disable_customizer_theme_settings( $config ) {
+function motobatt_disable_customizer_theme_settings( $config ) {
 	$remove = [ 'genesis_header', 'genesis_single', 'genesis_archives', 'genesis_footer' ];
 	foreach( $remove as $item ) {
 		unset( $config['genesis']['sections'][ $item ] );
 	}
 	return $config;
 }
-add_filter( 'genesis_customizer_theme_settings_config', 'gfs_disable_customizer_theme_settings' );
+add_filter( 'genesis_customizer_theme_settings_config', 'motobatt_disable_customizer_theme_settings' );

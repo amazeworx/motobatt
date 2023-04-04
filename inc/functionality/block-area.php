@@ -120,7 +120,7 @@ class EA_Block_Area {
  *
  * @return object
  */
-function gfs_block_area() {
+function motobatt_block_area() {
 	return EA_Block_Area::instance();
 }
-gfs_block_area();
+motobatt_block_area();

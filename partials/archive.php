@@ -10,11 +10,17 @@
 
 echo '<article class="post-summary">';
 
-	gfs_post_summary_image();
+    $youtube_video_url = get_field('youtube_video_url');
+    if ($youtube_video_url) {
+        global $wp_embed;
+        $post_video = $wp_embed->run_shortcode('[embed]' . $youtube_video_url . '[/embed]');
+        echo '<div class="post-summary__video video-responsive">' . $post_video . '</div>';
+    } else {
+        motobatt_post_summary_image();
+    }
 
 	echo '<div class="post-summary__content">';
-		gfs_entry_category();
-		gfs_post_summary_title();
+		motobatt_post_summary_title();
 	echo '</div>';
 
 echo '</article>';

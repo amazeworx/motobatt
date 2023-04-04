@@ -1,24 +1,28 @@
 /* Site Header
 ---------------------------------------------------------------------------------------------------- */
-$header-height: 48px;
+$header-height: 56px;
+
+.site-container {
+    padding-top: $header-height;
+}
 
 .site-header {
-	background: $black;
-	position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
     min-height: $header-height;
+    @include elevation(4);
     .wrap {
         display: flex;
         padding: 0;
-        overflow: hidden;
+        //overflow: hidden;
+        max-width: none;
     }
 }
 
 .title-area {
-	//float: left;
-	//width: 100%;
-	//max-width: $logo_width;
-	//text-align: left;
-	//margin: 0 auto;
     flex: 1 1 auto;
 
 	h1.site-title,
@@ -35,107 +39,101 @@ $header-height: 48px;
 
     .custom-logo-link {
         display: block;
-        padding: 14px 16px 10px;
+        // padding: 15px 16px 11px;
+        padding: 16px 16px 12px;
         + .site-title {
             font-size: 0;
             line-height: 0;
             padding: 0;
             text-indent: -9999px;
         }
+        .custom-logo {
+            // width: 215px;
+            // height: 30px;
+            width: 201px;
+            height: 28px;
+        }
     }
 
-	@include media("<=mobile_menu") {
-		//float: none;
-		//text-align: center;
-
-		// .site-title a {
-		// 	padding-bottom: 0;
-		// 	height: 48px;
-		// 	background-size: auto 42px;
-		// }
-	}
-
-
 }
-
 
 /* Admin Bar
 --------------------------------------------- */
 
-@include media(">782px" ) {
-	.admin-bar .site-container {
-		padding-top: 32px;
-	}
-}
+// @include media(">782px" ) {
+// 	.admin-bar .site-container {
+// 		padding-top: 32px;
+// 	}
+// }
 
-@include media("<=782px") {
-	#wpadminbar {
-		display: none !important;
-	}
-}
+// @include media("<=782px") {
+// 	#wpadminbar {
+// 		display: none !important;
+// 	}
+// }
 
 /* Persistent Header
 --------------------------------------------- */
 
-@if( $persistent_desktop ) {
-	@include media(">mobile_menu") {
+// @if( $persistent_desktop ) {
+// 	@include media(">mobile_menu") {
 
-		.site-container {
-			padding-top: $header-height;
-		}
+// 		.site-container {
+// 			padding-top: $header-height;
+// 		}
 
-		.site-header {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			z-index: 999;
-			height: $header-height;
-		}
+// 		.site-header {
+// 			position: fixed;
+// 			top: 0;
+// 			left: 0;
+// 			width: 100%;
+// 			z-index: 999;
+// 			height: $header-height;
+// 		}
 
-		@include media(">782px") {
-			.admin-bar {
+// 		@include media(">782px") {
+// 			.admin-bar {
 
-				.site-container {
-					padding-top: 32px + $header-height;
-				}
+// 				.site-container {
+// 					padding-top: 32px + $header-height;
+// 				}
 
-				.site-header {
-					top: 32px;
-				}
-			}
-		}
-	}
-}
+// 				.site-header {
+// 					top: 32px;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
 
-@if( $persistent_mobile ) {
-	@include media("<=mobile_menu") {
+// @if( $persistent_mobile ) {
+// 	@include media("<=mobile_menu") {
 
-		.site-container {
-			padding-top: $header-height;
-		}
+// 		.site-container {
+// 			padding-top: $header-height;
+// 		}
 
-		.site-header {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			z-index: 999;
-			max-height: 100vh;
-		}
+// 		.site-header {
+// 			position: fixed;
+// 			top: 0;
+// 			left: 0;
+// 			width: 100%;
+// 			z-index: 999;
+// 			max-height: 100vh;
+// 		}
 
-		@include media(">782px") {
-			.admin-bar {
+// 		@include media(">782px") {
+// 			.admin-bar {
 
-				.site-container {
-					padding-top: 32px + $header-height;
-				}
+// 				.site-container {
+// 					padding-top: 32px + $header-height;
+// 				}
 
-				.site-header {
-					top: 32px;
-				}
-			}
-		}
+// 				.site-header {
+// 					top: 32px;
+// 				}
+// 			}
+// 		}
 
-	}
-}
+// 	}
+// }

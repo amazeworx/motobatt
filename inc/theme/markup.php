@@ -17,12 +17,12 @@
  * @param array $args, markup args
  * @return string
  */
-function gfs_nav_menu_class( $open, $args ) {
+function motobatt_nav_menu_class( $open, $args ) {
 	$open = str_replace( $args['context'], $args['context'] . ' nav-menu', $open );
 	return $open;
 }
-add_filter( 'genesis_markup_nav-primary_open', 'gfs_nav_menu_class', 10, 2 );
-add_filter( 'genesis_markup_nav-secondary_open', 'gfs_nav_menu_class', 10, 2 );
+add_filter( 'genesis_markup_nav-primary_open', 'motobatt_nav_menu_class', 10, 2 );
+add_filter( 'genesis_markup_nav-secondary_open', 'motobatt_nav_menu_class', 10, 2 );
 
 /**
  * Change '.content-sidebar-wrap' to '.content-area'
@@ -31,11 +31,11 @@ add_filter( 'genesis_markup_nav-secondary_open', 'gfs_nav_menu_class', 10, 2 );
  * @param array $args, markup args
  * @return string
  */
-function gfs_change_content_sidebar_wrap( $attributes ) {
+function motobatt_change_content_sidebar_wrap( $attributes ) {
 	$attributes['class'] = 'content-area';
 	return $attributes;
 }
-add_filter( 'genesis_attr_content-sidebar-wrap', 'gfs_change_content_sidebar_wrap' );
+add_filter( 'genesis_attr_content-sidebar-wrap', 'motobatt_change_content_sidebar_wrap' );
 
 /**
  * Change '.content' to '.site-main'
@@ -44,37 +44,37 @@ add_filter( 'genesis_attr_content-sidebar-wrap', 'gfs_change_content_sidebar_wra
  * @param array $args, markup args
  * @return string
  */
-function gfs_change_content( $attributes ) {
+function motobatt_change_content( $attributes ) {
 	$attributes['class'] = 'site-main';
 	return $attributes;
 }
-add_filter( 'genesis_attr_content', 'gfs_change_content' );
+add_filter( 'genesis_attr_content', 'motobatt_change_content' );
 
 /**
  * Add #main-content to .site-inner
  *
  */
-function gfs_site_inner_id( $attributes ) {
+function motobatt_site_inner_id( $attributes ) {
 	$attributes['id'] = 'main-content';
 	return $attributes;
 }
-add_filter( 'genesis_attr_site-inner', 'gfs_site_inner_id' );
+add_filter( 'genesis_attr_site-inner', 'motobatt_site_inner_id' );
 
 /**
  * Remove padding from .site-inner
  *
  */
-function gfs_site_inner_no_padding( $attributes ) {
+function motobatt_site_inner_no_padding( $attributes ) {
 	$attributes['class'] .= ' full';
 	return $attributes;
 }
-//add_filter( 'genesis_attr_site-inner', 'gfs_site_inner_no_padding' );
+//add_filter( 'genesis_attr_site-inner', 'motobatt_site_inner_no_padding' );
 
 /**
  * Change skip link to #main-content
  *
  */
-function gfs_main_content_skip_link( $skip_links ) {
+function motobatt_main_content_skip_link( $skip_links ) {
 
 	$old = $skip_links;
 	$skip_links = array();
@@ -87,37 +87,37 @@ function gfs_main_content_skip_link( $skip_links ) {
 
 	return $skip_links;
 }
-add_filter( 'genesis_skip_links_output', 'gfs_main_content_skip_link' );
+add_filter( 'genesis_skip_links_output', 'motobatt_main_content_skip_link' );
 
 /**
  * Archive Description markup
  *
  */
-function gfs_archive_description_markup( $markup ) {
+function motobatt_archive_description_markup( $markup ) {
 	return str_replace( array( '<div', '</div' ), array( '<header', '</header' ), $markup );
 }
-add_filter( 'genesis_markup_posts-page-description_open', 'gfs_archive_description_markup' );
-add_filter( 'genesis_markup_posts-page-description_close', 'gfs_archive_description_markup' );
-add_filter( 'genesis_markup_taxonomy-archive-description_open', 'gfs_archive_description_markup' );
-add_filter( 'genesis_markup_taxonomy-archive-description_close', 'gfs_archive_description_markup' );
-add_filter( 'genesis_markup_author-archive-description_open', 'gfs_archive_description_markup' );
-add_filter( 'genesis_markup_author-archive-description_close', 'gfs_archive_description_markup' );
-add_filter( 'genesis_markup_cpt-archive-description_open', 'gfs_archive_description_markup' );
-add_filter( 'genesis_markup_cpt-archive-description_close', 'gfs_archive_description_markup' );
-add_filter( 'genesis_markup_date-archive-description_open', 'gfs_archive_description_markup' );
-add_filter( 'genesis_markup_date-archive-description_close', 'gfs_archive_description_markup' );
-add_filter( 'genesis_markup_search-description_open', 'gfs_archive_description_markup' );
-add_filter( 'genesis_markup_search-description_close', 'gfs_archive_description_markup' );
+add_filter( 'genesis_markup_posts-page-description_open', 'motobatt_archive_description_markup' );
+add_filter( 'genesis_markup_posts-page-description_close', 'motobatt_archive_description_markup' );
+add_filter( 'genesis_markup_taxonomy-archive-description_open', 'motobatt_archive_description_markup' );
+add_filter( 'genesis_markup_taxonomy-archive-description_close', 'motobatt_archive_description_markup' );
+add_filter( 'genesis_markup_author-archive-description_open', 'motobatt_archive_description_markup' );
+add_filter( 'genesis_markup_author-archive-description_close', 'motobatt_archive_description_markup' );
+add_filter( 'genesis_markup_cpt-archive-description_open', 'motobatt_archive_description_markup' );
+add_filter( 'genesis_markup_cpt-archive-description_close', 'motobatt_archive_description_markup' );
+add_filter( 'genesis_markup_date-archive-description_open', 'motobatt_archive_description_markup' );
+add_filter( 'genesis_markup_date-archive-description_close', 'motobatt_archive_description_markup' );
+add_filter( 'genesis_markup_search-description_open', 'motobatt_archive_description_markup' );
+add_filter( 'genesis_markup_search-description_close', 'motobatt_archive_description_markup' );
 
 /**
  * Archive Pagination markup
  *
  */
-function gfs_archive_pagination_markup( $markup ) {
+function motobatt_archive_pagination_markup( $markup ) {
 	return str_replace( array( '<div', '</div' ), array( '<nav', '</nav' ), $markup );
 }
-add_filter( 'genesis_markup_archive-pagination_open', 'gfs_archive_pagination_markup' );
-add_filter( 'genesis_markup_archive-pagination_close', 'gfs_archive_pagination_markup' );
+add_filter( 'genesis_markup_archive-pagination_open', 'motobatt_archive_pagination_markup' );
+add_filter( 'genesis_markup_archive-pagination_close', 'motobatt_archive_pagination_markup' );
 
 add_filter( 'genesis_attr_cpt-archive-description', 'genesis_attributes_cpt_archive_description' );
 
@@ -125,8 +125,8 @@ add_filter( 'genesis_attr_cpt-archive-description', 'genesis_attributes_cpt_arch
  * Search Header Classes
  *
  */
-function gfs_search_header_classes( $attributes ) {
+function motobatt_search_header_classes( $attributes ) {
 	$attributes['class'] = 'archive-description search-description';
 	return $attributes;
 }
-add_filter( 'genesis_attr_search-description', 'gfs_search_header_classes' );
+add_filter( 'genesis_attr_search-description', 'motobatt_search_header_classes' );

@@ -2,20 +2,30 @@
 ---------------------------------------------------------------------------------------------------- */
 
 .post-summary {
-	margin-bottom: $grid-gap;
+    margin-left: -1rem;
+    margin-right: -1rem;
+	margin-bottom: 1rem;
+}
+
+.post-summary__video {
+    background-color: #000;
+}
+
+.post-summary__content {
+    padding: .5rem 1rem;
 }
 
 .post-summary__title {
-	font-size: 18px;
+	font-size: 1rem;
 	font-weight: 400;
 	margin: 0;
 
 	a {
-		color: $grey_10;
+        color: $white;
 		text-decoration: none;
 
 		&:hover {
-			color: $highlight;
+            color: white;
 		}
 	}
 }

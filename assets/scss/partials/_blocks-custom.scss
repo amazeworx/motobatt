@@ -1,0 +1,38 @@
+.video-responsive {
+    position: relative;
+    &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: (9 / 16) * 100%;
+    }
+    > iframe {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.checkmark {
+    padding-left: 0!important;
+    margin-bottom: 1rem;
+    list-style: none;
+    li {
+        list-style: none;
+        position: relative;
+        padding-left: 2rem;
+        &::before {
+            content: '☑';
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 20px;
+            color: greenyellow;
+        }
+    }
+}

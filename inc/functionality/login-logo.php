@@ -12,17 +12,17 @@
  * Login Logo URL
  *
  */
-function gfs_login_header_url( $url ) {
+function motobatt_login_header_url( $url ) {
     return esc_url( home_url() );
 }
-add_filter( 'login_headerurl', 'gfs_login_header_url' );
+add_filter( 'login_headerurl', 'motobatt_login_header_url' );
 add_filter( 'login_headertext', '__return_empty_string' );
 
 /**
  * Login Logo
  *
  */
-function gfs_login_logo() {
+function motobatt_login_logo() {
 
 	$logo_path = '/assets/images/logo.svg';
 	if( ! file_exists( get_stylesheet_directory() . $logo_path ) )
@@ -45,4 +45,4 @@ function gfs_login_logo() {
     </style>
     <?php
 }
-add_action( 'login_head', 'gfs_login_logo' );
+add_action( 'login_head', 'motobatt_login_logo' );
