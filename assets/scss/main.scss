@@ -1,17 +1,21 @@
-@import "partials/base";
-@import "partials/reset";
-@import "partials/layout";
-@import "partials/form";
-@import "partials/blocks-base";
-@import "partials/blocks-core";
-@import "partials/blocks-plugin";
-@import "partials/blocks-custom";
-@import "partials/site-header";
-@import "partials/navigation";
-@import "partials/post-summary";
-@import "partials/archive";
-@import "partials/singular";
-@import "partials/site-footer";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-@import "pages/homepage";
-@import "pages/pages";
+@import 'partials/base';
+@import 'partials/reset';
+@import 'partials/layout';
+@import 'partials/form';
+@import 'partials/blocks-base';
+@import 'partials/blocks-core';
+@import 'partials/blocks-plugin';
+@import 'partials/blocks-custom';
+@import 'partials/site-header';
+@import 'partials/navigation';
+@import 'partials/post-summary';
+@import 'partials/archive';
+@import 'partials/singular';
+@import 'partials/site-footer';
+
+@import 'pages/homepage';
+@import 'pages/pages';

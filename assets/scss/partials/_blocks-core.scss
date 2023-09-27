@@ -1,110 +1,114 @@
-audio, canvas, embed, iframe, img, object, svg, video {
-    display: block;
-    vertical-align: middle;
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+  display: block;
 }
 
 /* Width
 --------------------------------------------- */
 .w-full {
-    width: 100%;
+  width: 100%;
 }
 
 /* Figure
 --------------------------------------------- */
 figure {
-    margin: 0;
+  margin: 0;
 }
 
 /* Button
 --------------------------------------------- */
 
-$default: nth( nth( $brand_colors, 1 ), 1 ); // first color in $brand_colors array
+$default: nth(nth($brand_colors, 1), 1); // first color in $brand_colors array
 
 .wp-block-button__link {
-	border: 2px solid brand-color( $default, 'darken' );
-	border-radius: 3px;
-	font-size: 20px;
-	font-weight: 700;
-	line-height: 32px;
-	padding: 16px 32px;
-	text-decoration: none;
+  border: 2px solid brand-color($default, 'darken');
+  border-radius: 3px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  padding: 16px 32px;
+  text-decoration: none;
 
-	.is-style-full &,
-	&.full {
-		display: block;
-		width: 100%;
-	}
+  .is-style-full &,
+  &.full {
+    display: block;
+    width: 100%;
+  }
 
-	&:not(.has-text-color) {
-		color: white;
+  &:not(.has-text-color) {
+    color: white;
 
-		&:hover {
-			color: white;
-		}
-	}
+    &:hover {
+      color: white;
+    }
+  }
 
-	&:not(.has-background) {
-		background-color: brand-color( $default );
+  &:not(.has-background) {
+    background-color: brand-color($default);
 
-		&:hover,
-		&:focus {
-			background-color: brand-color( $default, 'darken' );
-		}
-	}
+    &:hover,
+    &:focus {
+      background-color: brand-color($default, 'darken');
+    }
+  }
 
-	@each $name, $color in $brand_colors {
+  @each $name, $color in $brand_colors {
+    &.has-#{$name}-color:hover,
+    &.has-#{$name}-color:focus {
+      color: $color;
+    }
 
-		&.has-#{$name}-color:hover,
-		&.has-#{$name}-color:focus {
-			color: $color;
-		}
-
-		&.has-#{$name}-background-color:hover,
-		&.has-#{$name}-background-color:focus {
-			background-color: brand-color( $name, 'darken' );
-		}
-	}
-
+    &.has-#{$name}-background-color:hover,
+    &.has-#{$name}-background-color:focus {
+      background-color: brand-color($name, 'darken');
+    }
+  }
 }
 
 .button {
-    display: inline-block;
-    font-family: $exo;
-    text-transform: uppercase;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 700;
-    text-align: center;
-    color: $black;
-    background-color: $yellow;
+  display: inline-block;
+  font-family: $exo;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: $black;
+  background-color: $yellow;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 3px;
+  border: none;
+  white-space: nowrap;
+  &:hover {
     text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 3px;
-    border: none;
-    white-space: nowrap;
-    &:hover {
-        text-decoration: none;
-        opacity: 0.8;
-    }
-    &.button-lg {
-        font-size: 16px;
-        line-height: 24px;
-        padding: 12px 30px;
-    }
-    &.button-pill {
-        border-radius: 999px;
-    }
-    &.button-gradient {
-        @include linear-gradient(#FFF200, #FFB800);
-    }
-    &.button-invert {
-        background-color: $black;
-        color: $yellow;
-    }
-    &.button-block {
-        display: block;
-        width: 100%;
-    }
+    opacity: 0.8;
+  }
+  &.button-lg {
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px 30px;
+  }
+  &.button-pill {
+    border-radius: 999px;
+  }
+  &.button-gradient {
+    @include linear-gradient(#fff200, #ffb800);
+  }
+  &.button-invert {
+    background-color: $black;
+    color: $yellow;
+  }
+  &.button-block {
+    display: block;
+    width: 100%;
+  }
 }
 
 /* Blockquote
@@ -112,33 +116,32 @@ $default: nth( nth( $brand_colors, 1 ), 1 ); // first color in $brand_colors arr
 
 blockquote,
 blockquote.wp-block-quote {
-	background: transparent url(../icons/utility/quote.svg) no-repeat top left;
-	background-size: 36px auto;
-	padding-top: 36px + 11px;
-	text-align: left;
+  background: transparent url(../../icons/utility/quote.svg) no-repeat top left;
+  background-size: 36px auto;
+  padding-top: 36px + 11px;
+  text-align: left;
 
-	p {
-		color: $base-color;
-		font-size: 24px;
-		font-style: normal;
-		font-weight: 400;
-	}
+  p {
+    color: $base-color;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+  }
 
-	cite,
-	.wp-block-quote__citation {
-		color: $base-color;
-		display: block;
-		font-size: 16px;
-		font-weight: 700;
-		margin-top: 12px;
-		opacity: .5;
-		text-transform: uppercase;
-	}
+  cite,
+  .wp-block-quote__citation {
+    color: $base-color;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 12px;
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
 
-    p:last-of-type {
-        margin-bottom: 0;
-    }
-
+  p:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 /* Separator
@@ -146,114 +149,118 @@ blockquote.wp-block-quote {
 
 .wp-block-separator,
 hr {
-	background: transparent;
-	border: none;
-	width: 100%;
-	height: 32px;
-	position: relative;
+  background: transparent;
+  border: none;
+  width: 100%;
+  height: 32px;
+  position: relative;
 
-	&::before {
-		background: $border-color;
-		content: '';
-		display: block;
-		width: 100%;
-		height: 1px;
-		position: absolute;
-		top: 50%;
-		margin-top: -.5px;
-	}
+  &::before {
+    background: $border-color;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5px;
+  }
 }
 
 /* Image
 --------------------------------------------- */
 
 img {
-	display: block;
-	max-width: 100%;
-	height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 
-	&.alignleft {
-		float: left;
-		margin: 0 $block-margin $block-margin 0;
-	}
+  &.alignleft {
+    float: left;
+    margin: 0 $block-margin $block-margin 0;
+  }
 
-	&.alignright {
-		float: right;
-		margin: 0 0 $block-margin $block-margin;
-	}
+  &.alignright {
+    float: right;
+    margin: 0 0 $block-margin $block-margin;
+  }
 
-	&.aligncenter {
-		margin-left: auto;
-		margin-right: auto;
-	}
-
+  &.aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .wp-block-image figcaption {
-	color: $grey_7;
-	text-align: left;
-	font-size: 14px;
-	font-style: normal;
+  color: $grey_7;
+  text-align: left;
+  font-size: 14px;
+  font-style: normal;
 }
 
 /* Tables
 --------------------------------------------- */
 
-.wp-block-table  {
+.wp-block-table {
+  border-collapse: collapse;
+  width: 100%;
 
-    border-collapse: collapse;
-    width: 100%;
-
-	td, th {
-		padding: .5em;
-	    border: 1px solid;
-	}
+  td,
+  th {
+    padding: 0.5em;
+    border: 1px solid;
+  }
 }
 
 /* Color Options
 --------------------------------------------- */
 
 @each $name, $color in $brand_colors {
+  .has-#{$name}-color {
+    color: $color;
+  }
 
-	.has-#{$name}-color {
-		color: $color;
-	}
-
-	.has-#{$name}-background-color {
-		background-color: $color;
-	}
+  .has-#{$name}-background-color {
+    background-color: $color;
+  }
 }
 
 /* Group
 --------------------------------------------- */
 
 .wp-block-group {
-	padding: 40px 16px;
+  padding: 40px 16px;
 
-	@include media(">=tablet") {
-		padding: 60px 16px;
-	}
+  @include media('>=tablet') {
+    padding: 60px 16px;
+  }
 
-	@include media(">=medium") {
-		padding: 70px 16px;
-	}
+  @include media('>=medium') {
+    padding: 70px 16px;
+  }
 
-	.wp-block-group__inner-container {
-		max-width: $content_width;
-		margin: 0 auto;
-		@include clearfix;
+  .wp-block-group__inner-container {
+    max-width: $content_width;
+    margin: 0 auto;
+    @include clearfix;
 
-		& > *:last-child {
-			margin-bottom: 0;
-		}
-	}
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+  }
 
-	// Dark background
-	&.has-background:not(.has-grey-background-color) {
-		color: $white;
+  // Dark background
+  &.has-background:not(.has-grey-background-color) {
+    color: $white;
 
-		h1, h2, h3, h4, h5, h6, p {
-			color: $white;
-		}
-	}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      color: $white;
+    }
+  }
 }
