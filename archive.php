@@ -46,15 +46,16 @@ function category_nav()
 
   if ($categories) {
     echo '<div class="col-span-full my-8 lg:my-16">';
-    echo '<div class="flex justify-center gap-x-4 lg:gap-x-16">';
+    echo '<div class="flex justify-center gap-x-8 lg:gap-x-16">';
     foreach ($categories as $cat) {
       $category_link = get_category_link($cat->term_id);
       $category_class = '';
+      $category_style = 'font-family: Exo, Roboto, sans-serif;';
       $category = get_queried_object();
       if ($category->term_id == $cat->term_id) {
-        $category_class = ' text-[#FFF200] border-[#FFF200]';
+        $category_style .= ' color: #FFF200; border-color: #FFF200';
       }
-      echo '<a href="' . esc_url($category_link) . '" class="inline-block text-white leading-[1.2] text-[28px] italic font-black no-underline border-transparent border-b-2 hover:border-[#FFF200] hover:text-[#FFF200] ' . $category_class . '" style="font-family: Exo, Roboto, sans-serif;">';
+      echo '<a href="' . esc_url($category_link) . '" class="inline-block text-white leading-[1.2] text-[28px] italic font-black no-underline border-transparent border-b-2 hover:border-[#FFF200] hover:text-[#FFF200] ' . $category_class . '" style="' . $category_style . '">';
       echo $cat->name;
       echo '</a>';
     }
